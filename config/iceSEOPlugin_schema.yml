@@ -1,0 +1,28 @@
+connection: propel
+noXsd: false
+defaultIdMethod: native
+package: plugins.iceSEOPlugin.lib.model
+encoding: utf8
+
+classes:
+  MetaTag:
+    phpName: iceModelMetaTag
+    isI18n:  true
+    i18nTable:  meta_tag_i18n
+    columns:
+      id:  ~
+      url:         { type: varchar(255), required: true }
+      parameters:  { type: varchar(255), required: false }
+      updated_at:  ~
+      created_at:  ~
+
+    uniques:
+      meta_tag_U_1: [url, parameters]
+
+  MetaTagI18n:
+    phpName: iceModelMetaTagI18n
+    columns:
+      id:  ~
+      title:        { type: varchar(255), required: false, primaryString: true }
+      description:  { type: varchar(255), required: true }
+      keywords:     { type: varchar(255), required: true }
